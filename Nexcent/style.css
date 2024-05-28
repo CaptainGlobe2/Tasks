@@ -516,7 +516,7 @@ a {
     flex-direction: column;
     align-items: center;
     height: auto;
-    padding: 20px 10px; /* Adjust padding */
+    padding: 20px 10px; 
   }
 
   .unseen .left img {
@@ -800,7 +800,7 @@ a {
     flex-direction: column;
     align-items: center;
     height: auto;
-    padding: 20px 10px; /* Adjust padding */
+    padding: 20px 10px; 
   }
 
   .des-fot .left img {
@@ -840,7 +840,7 @@ a {
 @media (max-width: 480px) {
   .des-fot {
     margin-top: 1px;
-    padding: 10px; /* Adjust padding */
+    padding: 10px; 
     height: auto;
     /* margin-bottom: 70px; */
   }
@@ -1032,8 +1032,8 @@ a {
   }
 
   .log-b button {
-    padding: 10px 20px; /* Increase button padding */
-    font-size: 14px; /* Decrease font size for button */
+    padding: 10px 20px; 
+    font-size: 14px; 
   }
 }
 
@@ -1130,24 +1130,24 @@ a {
   }
 
   .caring .heading {
-    height: auto; /* Auto height for responsiveness */
-    padding: 0 20px; /* Adjust padding for smaller screens */
+    height: auto; 
+    padding: 0 20px; 
   }
 
   .caring .heading h1 {
-    font-size: 28px; /* Decrease font size for heading */
+    font-size: 28px;
   }
 
   .caring .heading p {
-    width: auto; /* Auto width for responsiveness */
-    font-size: 14px; /* Decrease font size for paragraph */
+    width: auto; 
+    font-size: 14px; 
   }
 
   .caring .cards {
-    padding: 0 20px; /* Adjust padding for smaller screens */
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center cards horizontally */
-    gap: 100px; /* Add some space between cards */
+    padding: 0 20px; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 100px; 
   }
 
   .caring .card {
@@ -1182,11 +1182,11 @@ a {
     gap: 20px;
   }
   .caring .heading h1 {
-    font-size: 24px; /* Decrease font size for heading */
+    font-size: 24px; 
   }
 
   .caring .heading p {
-    font-size: 12px; /* Decrease font size for paragraph */
+    font-size: 12px; 
   }
 
   .caring .mini-card {
@@ -1198,12 +1198,12 @@ a {
   }
 
   .caring .mini-card p {
-    font-size: 16px; /* Decrease font size for mini-card text */
+    font-size: 16px;
   }
 
   .caring .mini-card button {
-    font-size: 12px; /* Decrease font size for button */
-    width: 250px; /* Adjust button width */
+    font-size: 12px;
+    width: 250px; 
   }
 }
 
@@ -1246,9 +1246,9 @@ a {
 /* Responsive Styles for Tablets */
 @media (max-width: 768px) {
   .demo h1 {
-    width: auto; /* Allow the heading to adjust its width */
-    font-size: 48px; /* Decrease font size for smaller screens */
-    line-height: 60px; /* Adjust line height accordingly */
+    width: auto;
+    font-size: 48px;
+    line-height: 60px;
   }
 
   .demo button {
@@ -1413,10 +1413,10 @@ footer {
 /* Responsive Styles for Tablets */
 @media (max-width: 768px) {
   .footer {
-    padding: 64px 50px; /* Adjust padding for smaller screens */
-    flex-direction: column; /* Stack the sections vertically */
-    align-items: center; /* Center align items */
-    gap: 40px; /* Add some space between sections */
+    padding: 64px 50px; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 40px; 
     height: auto;
     justify-content: center;
   }
@@ -1424,8 +1424,8 @@ footer {
   .footer .left {
     width: 100%; /* Make the left section full width */
     justify-content: center;
-    gap: 20px; /* Adjust gap between items */
-    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; 
+    flex-wrap: wrap; 
     text-align: center;
     align-items: center;
   }
@@ -1435,8 +1435,8 @@ footer {
   }
 
   .footer .left .logo-img {
-    width: 150px; /* Adjust logo width */
-    height: auto; /* Allow the logo height to adjust based on width */
+    width: 150px; 
+    height: auto; 
   }
 
   .footer .left .text-det p,
@@ -1446,13 +1446,13 @@ footer {
 
   .footer .img-fot {
     /* justify-content: center; Center align items horizontally */
-    width: auto; /* Allow width to adjust based on content */
+    width: auto; /* Allow width to adjust based on content  but not working*/
   }
 
   .footer .right {
-    width: 100%; /* Make the right section full width */
-    justify-content: center; /* Center align items horizontally */
-    gap: 20px; /* Adjust gap between sections */
+    width: 100%;
+    justify-content: center; 
+    gap: 20px; 
   }
 
   .footer .right .r-right {
@@ -1463,7 +1463,7 @@ footer {
 /* Responsive Styles for Mobile Devices */
 @media (max-width: 480px) {
   .footer {
-    padding: 40px 20px; /* Further adjust padding for smaller screens */
+    padding: 40px 20px; 
     /* height: auto; */
     display: flex;
     flex-direction: column;
@@ -1487,13 +1487,13 @@ footer {
 
   .footer .right .r1-left,
   .footer .right .r2-left {
-    width: 100%; /* Make sections full width */
-    text-align: center; /* Center align text */
+    width: 100%; 
+    text-align: center; 
   }
 
   .footer .right .r1-left a,
   .footer .right .r2-left a {
-    margin-bottom: 8px; /* Further decrease margin bottom for links */
+    margin-bottom: 8px; 
   }
 
   .footer .right .r-right {
