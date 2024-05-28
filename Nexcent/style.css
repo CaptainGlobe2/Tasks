@@ -555,7 +555,10 @@ a {
 /* Responsive Styles for Mobile Devices - unseen */
 @media (max-width: 480px) {
   .unseen {
-    padding: 10px; /* Adjust padding */
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Adjust padding */
   }
 
   .unseen .left img {
@@ -566,6 +569,9 @@ a {
   .unseen .right {
     margin-top: 20px;
     padding: 0 10px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 75px;
   }
 
   .unseen .right h1 {
@@ -581,6 +587,7 @@ a {
   .unseen .right button {
     width: 100%;
     padding: 10px;
+
   }
 }
 
@@ -832,6 +839,7 @@ a {
 /* Responsive Styles for Mobile Devices - des-fot */
 @media (max-width: 480px) {
   .des-fot {
+    margin-top: 1px;
     padding: 10px; /* Adjust padding */
     height: auto;
     /* margin-bottom: 70px; */
@@ -962,9 +970,11 @@ a {
   .tes {
     /* margin-top: 10px; */
     padding: 20px;
-    height: auto;
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items horizontally on smaller screens */
+    /* height: auto; */
+    flex-direction: column; 
+    align-items: center; 
+    height: 130vh;
+    margin-top: 120px;
   }
 
   .tes .left img {
@@ -974,14 +984,26 @@ a {
 
   .tes .right {
     margin-top: 20px;
+    /* width: auto; */
+    display: flex;
+    flex-direction: column;
+
   }
 
   .tes .right p {
     font-size: 14px;
+    width: auto;
+  }
+  .tes .right .tes-p {
+    width: auto;
   }
 
   .tes .right .user-detail p {
     font-size: 14px;
+  }
+
+  .tes .right .user-detail{
+    margin-top: 210px;
   }
 
   .user-detail span {
@@ -1123,8 +1145,8 @@ a {
   }
 
   .caring .card {
-    width: 100%; /* Make cards full width */
-    max-width: 320px; /* Limit maximum width of cards */
+    /* width: 100%; Make cards full width */
+    /* max-width: 320px; Limit maximum width of cards */
   }
 
   .caring .mini-card {
@@ -1398,7 +1420,7 @@ footer {
     justify-content: center;
     gap: 20px; /* Adjust gap between items */
     flex-wrap: wrap; /* Allow items to wrap */
-    /* text-align: center; */
+    text-align: center;
     align-items: center;
   }
   .footer .text-det {
@@ -1436,8 +1458,18 @@ footer {
 @media (max-width: 480px) {
   .footer {
     padding: 40px 20px; /* Further adjust padding for smaller screens */
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+    height: 110vh;
+    text-align: center;
   }
 
+  .footer .left{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+  }
   .footer .left .logo-img {
     width: 120px; /* Further decrease logo width */
   }
