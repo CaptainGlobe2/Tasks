@@ -875,6 +875,16 @@ a {
   }
 }
 
+@media (max-width:280px){
+  .h-detail h1{
+    font-size: 12px;
+  }
+  .h-detail p{
+    font-size: 12px;
+  }
+  
+}
+
 /* des-fot */
 
 .des-fot {
@@ -1843,5 +1853,12 @@ footer {
 @media (max-width:235px){
   .r-right .email-input{
     display: none;
+  }
+}
+
+@media (max-width:200px){
+  .footer .img-fot{
+    display: flex;
+    flex-wrap: wrap;
   }
 }
