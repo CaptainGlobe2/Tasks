@@ -18,6 +18,7 @@ a {
   list-style: none;
 }
 
+
 .navbar {
   display: flex;
 
@@ -621,7 +622,7 @@ a {
 
 .unseen .right p {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #717171;
   /* width: 601px; */
@@ -922,7 +923,7 @@ a {
 
 .des-fot .right p {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #717171;
   /* width: 601px; */
