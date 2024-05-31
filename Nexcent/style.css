@@ -102,9 +102,10 @@ a {
     flex-direction: row;
     gap: 10px;
     position: absolute;
-    top: 42%;
+    top: 34%;
     background-color: #f5f7fa;
     align-items: center;
+    left: 40%;
   }
 
   .navbar.active .header-lists {
@@ -120,7 +121,7 @@ a {
 
   .navbar.active .header-buttons .login,
   .navbar.active .header-buttons .sign-up {
-    width: 20%;
+    /* width: 20%; */
   }
 
   .navbar.active .header-buttons .login {
@@ -152,8 +153,8 @@ a {
     align-items: center;
     position: absolute;
     top: 60px;
-    left: 0;
-    width: 100%;
+    /* left: 0; */
+    /* width: 100%; */
     background: #f5f7fa;
     padding: 20px 0;
   }
@@ -163,7 +164,7 @@ a {
     flex-direction: row;
     gap: 10px;
     position: absolute;
-    top: 42%;
+    /* top: 42%; */
     background-color: #f5f7fa;
     align-items: center;
   }
@@ -175,13 +176,13 @@ a {
   .navbar.active .header-buttons {
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
     gap: 10px;
   }
 
   .navbar.active .header-buttons .login,
   .navbar.active .header-buttons .sign-up {
-    width: 20%;
+    /* width: 20%; */
   }
 
   .navbar.active .header-buttons .login {
@@ -206,6 +207,14 @@ a {
   .header-icon img {
     width: 120px;
     height: 20px;
+  }
+}
+
+@media (max-width:242px){
+  .navbar.active .header-buttons{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 
@@ -718,6 +727,7 @@ a {
 
   .unseen .right button {
     /* width: 100%; */
+    width: auto;
     padding: 10px;
   }
 }
@@ -1016,6 +1026,7 @@ a {
   .des-fot .right button {
     /* width: 100%; */
     padding: 10px;
+    width: auto;
     /* margin-bottom:70px */
   }
 }
