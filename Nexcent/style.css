@@ -215,6 +215,13 @@ a {
   }
 }
 
+@media (max-width:360px) {
+  .navbar.active .header-buttons{
+    top: 38%;
+    left: 30%;
+  }
+}
+
 @media (max-width:242px){
   .navbar.active .header-buttons{
     display: flex;
