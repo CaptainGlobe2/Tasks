@@ -2,13 +2,15 @@
 import { Button, Form, Modal, Table } from 'react-bootstrap'
 import './App.css'
 import { useState } from 'react'
+import MyModal from './Modal/MyModal';
+import MyTable from './Table/MyTable';
 
 function App() {
 const [userData,SetUserData] = useState({name:'',phoneNo:'',Email:'',Address:''});
 const [tableShow,setTableShow] = useState(false);
 const [showData,setShowData] = useState([]);
 const [show,setShow] = useState(false);
-const handleClose = () => setShow(false);
+const handleClose = () => {SetUserData({name:'',phoneNo:'',Email:'',Address:''});setShow(false)};
 const handleShow = () => {setValidationErrors({});setShow(true);}//to ensure that validation errors are cleared
 const [isEditing,setIsEditing] = useState(false);
 const [editingIndex,setEditingIndex] = useState(null);
@@ -86,114 +88,12 @@ console.log(showData);
       Open Form
      </Button>
 
-     <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Fill The form</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form className='validation'>
-          <Form.Group className='mb-3'>
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type='text'
-              name='name'
-              placeholder='Enter the name'
-              value={userData.name}
-              onChange={handleChange}
-              required
-              isInvalid={!!validationErrors.name}
-              ></Form.Control>
-              <Form.Control.Feedback type='invalid'>{validationErrors.name}</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className='mb-3'>
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              type='number'
-              name='phoneNo'
-              placeholder='Enter the phoneNumber'
-              onChange={handleChange}
-              value={userData.phoneNo}
-              isInvalid={!!validationErrors.phoneNo}
-              ></Form.Control>
-              <Form.Control.Feedback type='invalid'>{validationErrors.phoneNo}</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className='mb-3'>
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type='email'
-              name='Email'
-              placeholder='Enter Your email'
-              value={userData.Email}
-              onChange={handleChange}
-              isInvalid={!!validationErrors.Email}></Form.Control>
-              <Form.Control.Feedback type='invalid'>{validationErrors.Email}</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className='mb-3'>
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              type='text'
-              name='Address'
-              placeholder='Enter Your address'
-              value={userData.Address}
-              onChange={handleChange}
-              isInvalid={!!validationErrors.Address}></Form.Control>
-              <Form.Control.Feedback type='invalid'>{validationErrors.Address}</Form.Control.Feedback>
-          </Form.Group>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant='primary' onClick={handleSave}>
-            {isEditing ? 'Save Edit Changes' : 'Save Changes'}
-          </Button>
-      </Modal.Footer>
-     </Modal>
+     <MyModal show={show} onHide={handleClose} buttonClose={handleClose} buttonSave={handleSave} isEditing={isEditing} userData={userData} handleChange={handleChange} validationErrors={validationErrors}></MyModal>
+
+     <MyTable showData={showData} handleEdit={handleEdit} handleDelete={handleDelete} tableShow={tableShow}></MyTable>
 
 
-     <Table bordered hover className='container'>
-     <thead>
-       <tr>
-       <th>
-         No
-       </th>
-       <th>Name</th>
-       <th>Phone Number</th>
-       <th>Email Address</th>
-       <th>Address</th>
-       <th>Edit/Delete</th>
-       </tr>
-     </thead>
-
-
-     {tableShow ?(
      
-     
-     <tbody>
-       {showData.map((current,index) => (
-        <>
-         <tr key={index}>
-         <td>{index+1}</td>
-         <td>{current?.name}</td>
-         <td>{current?.phoneNo}</td>
-         <td>{current?.Email}</td>
-         <td>{current?.Address}</td>
-         <td><Button onClick={()=>handleEdit(index)}>Edit</Button><Button onClick={()=>handleDelete(index)}>Delete</Button></td> 
-       </tr>
-       </>
-       
-       
-       ))}
-       
-     </tbody>
-    )
-    :
-    ("")
-    
-
-     }
-     </Table>
 
      </div>
     </>
