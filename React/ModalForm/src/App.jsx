@@ -9,18 +9,45 @@ const [tableShow,setTableShow] = useState(false);
 const [showData,setShowData] = useState([]);
 const [show,setShow] = useState(false);
 const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
+const handleShow = () => {setValidationErrors({});setShow(true);}//to ensure that validation errors are cleared
 const [isEditing,setIsEditing] = useState(false);
 const [editingIndex,setEditingIndex] = useState(null);
+const [validationErrors,setValidationErrors] = useState({});
 
 const handleChange = (e) => {
   SetUserData({...userData,[e.target.name]:e.target.value});
   
 }
 
+const validateForm = () =>{
+  let errors = {};
+  if(!userData.name.trim()) errors.name = "Name is required";
+  if(!userData.phoneNo.trim()) errors.phoneNo = "PhoneNo is required";
+  if(!userData.Email.trim()) errors.Email = "Email is required";
+  if(!userData.Address.trim()) errors.Address = "Address is required";
+  // if (userData.phoneNo && !/^\d+$/.test(userData.phoneNo)) errors.phoneNo = 'Phone number must be numeric';
+  if (!userData.phoneNo.trim()) {
+    errors.phoneNo = 'Phone number is required';
+  } else if (userData.phoneNo.length !== 10 || !/^\d+$/.test(userData.phoneNo)) {
+    errors.phoneNo = 'Phone number must be 10 digits';}
+  if (userData.Email && !/\S+@\S+\.\S+/.test(userData.Email)) errors.Email = 'Email is invalid';
+  return errors;
+
+}
+
 const handleSave = () => {
   // setShowData((prevData) => [...prevData, { ...userData }]);
   // SetUserData({name:'',phoneNo:'',Email:'',Address:''})
+
+
+  const errors = validateForm();
+  if(Object.keys(errors).length>0){
+    setValidationErrors(errors);
+    return;
+  }
+
+
+
   if(isEditing){
     const updatedData = [...showData];
     updatedData[editingIndex] = {...userData};
@@ -64,16 +91,19 @@ console.log(showData);
         <Modal.Title>Fill The form</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form className='validation'>
           <Form.Group className='mb-3'>
             <Form.Label>Name</Form.Label>
             <Form.Control
               type='text'
               name='name'
-              placeholder='enter the name'
+              placeholder='Enter the name'
               value={userData.name}
               onChange={handleChange}
+              required
+              isInvalid={!!validationErrors.name}
               ></Form.Control>
+              <Form.Control.Feedback type='invalid'>{validationErrors.name}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Phone Number</Form.Label>
@@ -83,7 +113,9 @@ console.log(showData);
               placeholder='Enter the phoneNumber'
               onChange={handleChange}
               value={userData.phoneNo}
+              isInvalid={!!validationErrors.phoneNo}
               ></Form.Control>
+              <Form.Control.Feedback type='invalid'>{validationErrors.phoneNo}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Email Address</Form.Label>
@@ -92,7 +124,9 @@ console.log(showData);
               name='Email'
               placeholder='Enter Your email'
               value={userData.Email}
-              onChange={handleChange}></Form.Control>
+              onChange={handleChange}
+              isInvalid={!!validationErrors.Email}></Form.Control>
+              <Form.Control.Feedback type='invalid'>{validationErrors.Email}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Address</Form.Label>
@@ -101,7 +135,9 @@ console.log(showData);
               name='Address'
               placeholder='Enter Your address'
               value={userData.Address}
-              onChange={handleChange}></Form.Control>
+              onChange={handleChange}
+              isInvalid={!!validationErrors.Address}></Form.Control>
+              <Form.Control.Feedback type='invalid'>{validationErrors.Address}</Form.Control.Feedback>
           </Form.Group>
         </Form>
       </Modal.Body>
@@ -116,8 +152,6 @@ console.log(showData);
      </Modal>
 
 
-     {tableShow ?(
-     
      <Table bordered hover className='container'>
      <thead>
        <tr>
@@ -131,6 +165,11 @@ console.log(showData);
        <th>Edit/Delete</th>
        </tr>
      </thead>
+
+
+     {tableShow ?(
+     
+     
      <tbody>
        {showData.map((current,index) => (
         <>
@@ -148,11 +187,13 @@ console.log(showData);
        ))}
        
      </tbody>
-    </Table>)
+    )
     :
-    ""
+    ("")
+    
 
      }
+     </Table>
 
      </div>
     </>
