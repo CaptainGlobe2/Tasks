@@ -2,3 +2,5 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT = 'LOGOUT';
 export const SET_FORM_STATE = 'SET_FORM_STATE'
+export const INCREMENT_COUNT = "INCREMENT_COUNT"
+export const DECEREMENT_COUNT = "DECEREMENT_COUNT"

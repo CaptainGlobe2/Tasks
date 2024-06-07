@@ -1,0 +1,1 @@
+export const countValue = (state) => state.counts.count
