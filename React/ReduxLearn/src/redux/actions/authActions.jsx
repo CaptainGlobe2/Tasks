@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT,SET_FORM_STATE } from '../types/actionTypes.jsx';
+import { LOGIN_SUCCESS, LOGIN_FAILURE, SET_FORM_STATE } from '../types/actionTypes.jsx';
 
 const validUsers = [
     { email: 'user1@example.com', password: 'password1' },
@@ -26,4 +26,4 @@ export const  login = (email,password) => (dispatch) => {
 };
 
 
-export const logout = ()=> ({type:LOGOUT});
+// export const logout = ()=> ({type:LOGOUT});

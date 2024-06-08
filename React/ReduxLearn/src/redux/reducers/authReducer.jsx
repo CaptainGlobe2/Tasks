@@ -28,13 +28,13 @@ const authReducer = (state=initialState,action) => {
                 error:'Invalid email or password',
             };
 
-        case LOGOUT:
-            return{
-                ...state,
-                isAuthenticated:false,
-                email:null,
-                error:null,
-            };
+        // case LOGOUT:
+        //     return{
+        //         ...state,
+        //         isAuthenticated:false,
+        //         email:null,
+        //         error:null,
+        //     };
 
 
 

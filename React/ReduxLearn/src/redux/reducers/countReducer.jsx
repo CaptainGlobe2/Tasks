@@ -1,7 +1,7 @@
 import { DECEREMENT_COUNT, INCREMENT_COUNT } from "../types/actionTypes"
 
 const countInitialState = {
-    count:0
+    count:1
 }
 
 

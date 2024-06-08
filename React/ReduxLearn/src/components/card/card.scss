@@ -1,0 +1,19 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    .image{
+        
+    }
+
+    .image img{
+        width: 200px;
+        height: 200px;
+        // background-color: #F0EEED;
+    }
+
+    .text-group{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
