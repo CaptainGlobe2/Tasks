@@ -1,4 +1,4 @@
-import { DECEREMENT_COUNT, INCREMENT_COUNT } from "../types/actionTypes";
+import { DECEREMENT_COUNT, INCREMENT_COUNT, RESET_COUNT } from "../types/actionTypes";
 
 export const increment = () => ({
     type:INCREMENT_COUNT,
@@ -8,4 +8,8 @@ export const increment = () => ({
 export const decrement = () => ({
     type:DECEREMENT_COUNT,
     // payload:count,
+})
+
+export const reset = () =>({
+    type:RESET_COUNT,
 })

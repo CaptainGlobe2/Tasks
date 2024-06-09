@@ -4,13 +4,15 @@ import countReducer from './countReducer';
 import todoReducer from './todoReducer';
 import fetchData from './fetchDataReducer'
 import carteReducer from "./cartReducer";
+// import cartItemReducer from "./cartItemReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   counts:countReducer,
   todos:todoReducer,
   fetchDatas:fetchData,
-  cart:carteReducer
+  cart:carteReducer,
+  // cartItem:cartItemReducer
 });
 
 export default rootReducer;

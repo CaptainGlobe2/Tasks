@@ -12,7 +12,7 @@ import { selectFetchDatas } from '../../redux/selectors/fetchSelectors';
 import { fetchData } from '../../redux/actions/fetchDataAction';
 import StarRating from '../StarRating';
 import { countValue } from '../../redux/selectors/countSelectors';
-import { decrement, increment } from '../../redux/actions/countActions';
+import { decrement, increment, reset } from '../../redux/actions/countActions';
 import { addToCart } from '../../redux/actions/cartActions';
 import { useNavigate } from 'react-router-dom';
 const Card = ({data}) => {
@@ -24,7 +24,7 @@ const Card = ({data}) => {
     //     dispatch(fetchData());
     // },[dispatch]);
 
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
  
   const handleOpen = () => setOpen(!open);
   const [price, setPrice] = useState(data.price);
@@ -33,7 +33,6 @@ const Card = ({data}) => {
   const count = useSelector(countValue);
 
   useEffect(() => {
-    // Set initial price based on the initial count
     setPrice(data.price * count);
 }, [data.price, count]);
 
@@ -58,6 +57,17 @@ const Card = ({data}) => {
     dispatch(addToCart(product));
     navigate('/cart');
   }
+
+  const resetCountAndPrice = () => {
+    setPrice(data.price);
+    dispatch(reset());
+  };
+
+  useEffect(() => {
+    if (!open) {
+      resetCountAndPrice();
+    }
+  }, [open]);
 
   return (
     <>
