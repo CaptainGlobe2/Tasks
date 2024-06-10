@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { selectIsAuthenticated } from './redux/selectors/authSelectors'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
+import ContactUs from './pages/ContactUs'
 
 function App() {
   const isAuth = useSelector(selectIsAuthenticated)
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/home" element={isAuth ?<Home/> : <Navigate to="/" replace/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/contactUs' element={<ContactUs/>}/>
       </Routes>
     
       

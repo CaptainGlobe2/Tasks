@@ -1,13 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cartItem } from "../redux/selectors/cartSelectors";
+import { cartItem,  deliverFees,  discounts, subTotal } from "../redux/selectors/cartSelectors";
 import deleteicon from '../assets/Frame.png'
 import { decrementItemsCount, incrementItemsCount, removeFromCart } from "../redux/actions/cartActions";
+import NavBar from '../components/navbar/Navbar'
 
 
 const Cart = () => {
   const cartItems = useSelector(cartItem);
   const dispatch = useDispatch();
+  const subtotal = useSelector(subTotal);
+  const discount = useSelector(discounts);
+  const deliveryfee = useSelector(deliverFees);
+  const total = subtotal - discount + deliveryfee;
 
   const handleIncrement = (itemId) => {
     dispatch(incrementItemsCount(itemId));
@@ -23,16 +28,17 @@ const Cart = () => {
 
   return (
     <>
+    <NavBar/>
       <p className="text-4xl font-bold">YOUR CART</p>
       {cartItems.length === 0 ? (
         <p>No items in the cart</p>
       ) : (
-        <div className="flex sm:flex-col md:flex-row justify-evenly gap-4">
-        <ul className="border border-gray-400 rounded-lg p-2">
+        <div className="flex flex-col  md:flex-row justify-evenly gap-4">
+        <ul className="border border-gray-400 rounded-lg p-2 ">
           {cartItems.map((item, index) => (
             <li key={index}>
               
-              <div className="flex h-[124px] gap-5 m-4  ">
+              <div className="flex  gap-5 m-4  ">
                 <div className="flex justify-center rounded-xl">
                   <img  src={item.image} alt={item.title} width="50" />
                 </div>
@@ -71,20 +77,20 @@ const Cart = () => {
           <p className="flex text-2xl font-bold">Order Summary</p>
           <div className="flex justify-between ">
             <p className="text-xl font-normal">subtotal</p>
-            <p className="text-xl font-bold">amount</p>
+            <p className="text-xl font-bold">${subtotal.toFixed(2)}</p>
           </div>
           <div className="flex justify-between">
             <p className="text-xl font-normal">Discount</p>
-            <p className="text-xl font-bold text-[#FF3333]">amount</p>
+            <p className="text-xl font-bold text-[#FF3333]">${discount.toFixed(2)}</p>
           </div>
           <div className="flex justify-between">
            <p className="text-xl font-normal"> Delivery Fee </p>
-           <p className="text-xl font-bold">amount</p>
+           <p className="text-xl font-bold">${deliveryfee.toFixed(2)}</p>
           </div>
           <hr />
           <div className="flex justify-between">
             <p className="text-xl font-normal">total</p>
-            <p className="text-xl font-bold">amount</p>
+            <p className="text-xl font-bold">${total.toFixed(2)}</p>
           </div>
           <button className="bg-black text-white rounded-3xl p-2">Go to Checkout</button>
         </div>

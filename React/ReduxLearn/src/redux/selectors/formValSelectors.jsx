@@ -1,0 +1,1 @@
+export const formStates = (state) => state.formVal;

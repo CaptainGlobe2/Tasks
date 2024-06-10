@@ -4,6 +4,7 @@ import countReducer from './countReducer';
 import todoReducer from './todoReducer';
 import fetchData from './fetchDataReducer'
 import carteReducer from "./cartReducer";
+import formValReducer from "./formValReducer";
 // import cartItemReducer from "./cartItemReducer";
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   fetchDatas:fetchData,
   cart:carteReducer,
   // cartItem:cartItemReducer
+  formVal:formValReducer
 });
 
 export default rootReducer;
