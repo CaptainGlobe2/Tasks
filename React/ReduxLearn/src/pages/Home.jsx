@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { countValue } from '../redux/selectors/countSelectors';
 import Navbar from '../components/navbar/Navbar';
 import { selectFetchDatas } from '../redux/selectors/fetchSelectors';
 import { fetchData } from '../redux/actions/fetchDataAction';
-import Card from '../components/card/Card';
 import Cards from '../components/cards/Cards';
-import Carousel from "react-multi-carousel";
+
 import "react-multi-carousel/lib/styles.css";
 import CardCat from '../components/cardCat/CardCat';
 import { DarkModeContext } from '../context/DarkModeContext';

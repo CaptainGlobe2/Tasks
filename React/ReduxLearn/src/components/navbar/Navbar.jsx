@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './navbar.scss'
-import { Navigate } from 'react-router-dom'
+
 import { Link } from 'react-router-dom'
 import { DarkModeContext } from '../../context/DarkModeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

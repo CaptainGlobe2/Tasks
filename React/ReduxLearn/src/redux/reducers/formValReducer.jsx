@@ -1,4 +1,3 @@
-import { act } from "react";
 import { SET_FORM_FIELD, VALIDATE_FORM } from "../types/actionTypes";
 import { validateEmail, validatePassword } from "../../helpers/validationHelpers";
 

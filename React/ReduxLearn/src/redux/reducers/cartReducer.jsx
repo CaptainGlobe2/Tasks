@@ -1,4 +1,4 @@
-import { act } from "react"
+
 import { ADD_TO_CART, DECREMENT_ITEM_COUNT, INCREMENT_ITEM_COUNT, REMOVE_FROM_CART } from "../types/actionTypes"
 
 const initialState = {

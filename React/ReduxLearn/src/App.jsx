@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import Login from './pages/Login'
-import { Navigate, Route, Router, Routes } from 'react-router-dom'
+import { Navigate, Route,  Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsAuthenticated } from './redux/selectors/authSelectors'
 import Home from './pages/Home'
