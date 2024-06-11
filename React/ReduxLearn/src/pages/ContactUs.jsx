@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../components/navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import {formStates} from '../redux/selectors/formValSelectors'
 import { setFormField, validateForm } from '../redux/actions/formValAction';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 const ContactUs = () => {
     const [isChecked, setIsChecked] = useState(false);
@@ -21,8 +22,10 @@ const ContactUs = () => {
     event.preventDefault();
     dispatch(validateForm());
   }
+  const {darkMode} = useContext(DarkModeContext)
   return (
     <>
+    <div className={`${darkMode ? 'dark-mode' : 'light-mode'}`}>
     <Navbar/>
     <div className="m-5">
         <div className="text-4xl font-bold text-blue-gray-700">Feedback Form</div>
@@ -147,6 +150,7 @@ const ContactUs = () => {
             Submit
           </button>
         </form>
+        </div>
         </div>
         
     </>

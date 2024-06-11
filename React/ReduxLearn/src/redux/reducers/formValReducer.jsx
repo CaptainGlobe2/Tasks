@@ -1,5 +1,6 @@
 import { act } from "react";
 import { SET_FORM_FIELD, VALIDATE_FORM } from "../types/actionTypes";
+import { validateEmail, validatePassword } from "../../helpers/validationHelpers";
 
 const initailState = {
     name:'',
@@ -14,10 +15,10 @@ const initailState = {
     }
 }
 
-const validateEmail = (email) => {
-    const check = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-    return check.test(String(email).toLowerCase());
-}
+// const validateEmail = (email) => {
+//     const check = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+//     return check.test(String(email).toLowerCase());
+// }
 
 // (?=.*[a-z]) ensures there is at least one lowercase letter.
 // (?=.*[A-Z]) ensures there is at least one uppercase letter.
@@ -25,10 +26,10 @@ const validateEmail = (email) => {
 // (?=.*[@$!%*?&#]) ensures there is at least one special character from the set @$!%*?&#.
 // [A-Za-z\d@$!%*?&#]{6,} ensures the password is at least 6 characters long.
 
-const validatePassword = (password) => {
-    const check = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{6,}$/;
-    return check.test(password);
-}
+// const validatePassword = (password) => {
+//     const check = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{6,}$/;
+//     return check.test(password);
+// }
 
 const formValReducer = (state=initailState,action) =>{
     switch(action.type){

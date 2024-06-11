@@ -32,7 +32,8 @@ const Login = () => {
   return (
     <>
         <div className="login">
-          <div className="container">
+          
+          <div className="container w-1/2">
             <div className="input-group">
               <label htmlFor="email">Email</label>
               <input type="email" name="email" id="email" placeholder='Enter your email' value={formState.email} onChange={handleChange}/>
@@ -41,7 +42,7 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <input type="password" placeholder='Enter your password' name="password" id="password" value={formState.password} onChange={handleChange} />
             </div>
-            <button onClick={handleLogin}>Login</button>
+            <button className='bg-slate-500 p-2 rounded-xl  flex justify-center items-center' onClick={handleLogin}>Login</button>
             {error && <p>{error}</p>}
           </div>
         </div>

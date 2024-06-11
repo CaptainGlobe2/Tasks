@@ -4,11 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(https://images.hdqwalls.com/wallpapers/colorful-sunset-minimal-4k-0q.jpg);
+    background-size: cover;
+    background-position: center;
 
     .container{
         display: flex;
         flex-direction: column;
         gap: 20px;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
     }
     .input-group{
         display: flex;

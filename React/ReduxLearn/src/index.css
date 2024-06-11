@@ -12,3 +12,28 @@ ol, ul {
     margin: 0;
     padding: 0;
 }
+
+.loader {
+    border-top-color: #3498db;
+    animation: spinner 1.5s linear infinite;
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .light-mode {
+    background-color: white;
+    color: black;
+  }
+
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }

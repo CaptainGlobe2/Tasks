@@ -40,13 +40,18 @@ const Cards = () => {
 
   return (
     <>
-       <h1>Cards</h1>
-       {loading && <p>Loading...</p>}
+       <h1 className="text-2xl font-bold mt-6 mb-4">New Arraival</h1>
+       {loading && (
+        <div className="flex justify-center items-center h-64">
+          <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+          
+        </div>
+      )}
        {error && <p>Error:{error}</p>}
 
        <Carousel responsive={responsive} className="flex">
         {datas.map((data)=>(
-            <Card data={data}></Card>
+            <Card className='shadow-md p-2' data={data}></Card>
         ))}
         </Carousel>
 
