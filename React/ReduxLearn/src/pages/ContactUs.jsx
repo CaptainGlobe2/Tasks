@@ -1,26 +1,26 @@
 import React, { useContext, useState } from 'react'
 import Navbar from '../components/navbar/Navbar';
-import { useDispatch, useSelector } from 'react-redux';
-import {formStates} from '../redux/selectors/formValSelectors'
+import { connect } from 'react-redux';
+// import {formStates} from '../redux/selectors/formValSelectors'
 import { setFormField, validateForm } from '../redux/actions/formValAction';
 import { DarkModeContext } from '../context/DarkModeContext';
 
-const ContactUs = () => {
+const ContactUs = ({ formState, errors, setFormField, validateForm }) => {
     const [isChecked, setIsChecked] = useState(false);
-    const dispatch = useDispatch();
-    const formState = useSelector(formStates);
+    
+    // const formState = useSelector(formStates);
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
 
   const handleChange = (field) => (event) => {
-    dispatch(setFormField(field,event.target.value));
+    setFormField(field,event.target.value);
   }
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    dispatch(validateForm());
+    validateForm();
   }
   const {darkMode} = useContext(DarkModeContext)
   return (
@@ -40,7 +40,7 @@ const ContactUs = () => {
               value={formState.name}
               onChange={handleChange('name')}
             />
-            {formState.errors.name && <div className="text-red-500">{formState.errors.name}</div>}
+            {errors.name && <div className="text-red-500">{errors.name}</div>}
             <div className="-mb-3 text-2xl font-semibold text-blue-gray-700">Your Email</div>
             <input
               type="email"
@@ -49,7 +49,7 @@ const ContactUs = () => {
               value={formState.email}
               onChange={handleChange('email')}
             />
-            {formState.errors.email && <div className="text-red-500">{formState.errors.email}</div>}
+            {errors.email && <div className="text-red-500">{errors.email}</div>}
             <div className="-mb-3 text-2xl font-semibold text-blue-gray-700">Password</div>
             <input
               type="password"
@@ -58,7 +58,7 @@ const ContactUs = () => {
               value={formState.password}
               onChange={handleChange('password')}
             />
-            {formState.errors.password && <div className="text-red-500">{formState.errors.password}</div>}
+            {errors.password && <div className="text-red-500">{errors.password}</div>}
           </div>
           <div className="flex flex-col w-1/2 mt-5 mb-5 border p-5 rounded shadow-sm">
             {/* <div className="text-2xl font-semibold text-blue-gray-700">Rate Your Experience</div>
@@ -125,7 +125,7 @@ const ContactUs = () => {
                 </label>
               ))}
             </div>
-            {formState.errors.rating && <div className="text-red-500">{formState.errors.rating}</div>}
+            {errors.rating && <div className="text-red-500">{errors.rating}</div>}
           </div>
           <label className="flex items-center mt-5">
             <input
@@ -157,4 +157,15 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs
+const mapStateToProps = (state) => ({
+  formState: state.formVal.formState,
+  errors: state.formVal.errors,
+});
+
+const mapDispatchToProps = {
+  setFormField,
+  validateForm,
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(ContactUs);

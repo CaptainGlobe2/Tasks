@@ -2,10 +2,13 @@ import { SET_FORM_FIELD, VALIDATE_FORM } from "../types/actionTypes";
 import { validateEmail, validatePassword } from "../../helpers/validationHelpers";
 
 const initailState = {
-    name:'',
-    email:'',
-    password:'',
-    rating:'',
+    formState:{
+        name:'',
+        email:'',
+        password:'',
+        rating:'',
+    },
+   
     errors:{
         name:'',
         email:'',
@@ -35,7 +38,10 @@ const formValReducer = (state=initailState,action) =>{
         case SET_FORM_FIELD:
             return{
                 ...state,
-                [action.payload.field]:action.payload.value,
+                formState: {
+                    ...state.formState,
+                    [action.payload.field]: action.payload.value,
+                },
                 errors:{
                     ...state.errors,
                     [action.payload.field]:''
@@ -44,12 +50,12 @@ const formValReducer = (state=initailState,action) =>{
 
         case VALIDATE_FORM:
             const errors = {};
-            if (!state.name) errors.name = 'Name is required';
-            if (!state.email) errors.email = 'Email is required';
-            else if (!validateEmail(state.email)) errors.email = 'Invalid email';
-            if (!state.password) errors.password = 'Password is required';
-            else if (!validatePassword(state.password)) errors.password = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
-            if (!state.rating) errors.rating = 'Rating is required';
+            if (!state.formState.name) errors.name = 'Name is required';
+            if (!state.formState.email) errors.email = 'Email is required';
+            else if (!validateEmail(state.formState.email)) errors.email = 'Invalid email';
+            if (!state.formState.password) errors.password = 'Password is required';
+            else if (!validatePassword(state.formState.password)) errors.password = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+            if (!state.formState.rating) errors.rating = 'Rating is required';
             
             return{
                 ...state,

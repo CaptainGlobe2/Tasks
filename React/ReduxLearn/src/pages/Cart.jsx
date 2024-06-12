@@ -5,6 +5,7 @@ import deleteicon from '../assets/Frame.png'
 import { decrementItemsCount, incrementItemsCount, removeFromCart } from "../redux/actions/cartActions";
 import NavBar from '../components/navbar/Navbar'
 import { DarkModeContext } from "../context/DarkModeContext";
+import OrderSummary from "../components/OrderSummary";
 
 
 const Cart = () => {
@@ -41,64 +42,31 @@ const Cart = () => {
         <div className="flex flex-col  md:flex-row justify-evenly gap-4">
         <ul className="border border-gray-400 rounded-lg p-2 ">
           {cartItems.map((item, index) => (
-            <li key={index}>
-              
-              <div className="flex   gap-5 m-4  ">
-                <div className="flex justify-center rounded-xl">
-                  <img  src={item.image} alt={item.title} width="50" />
+            <li key={index} className="grid grid-cols-4 gap-5 p-4  border-b border-gray-300">
+                <div className="flex justify-center col-span-1">
+                  <img src={item.image} alt={item.title} width="50" />
                 </div>
-                <div className="flex flex-col gap-2">
-                    <div className="flex justify-between">
-                        <p className="flex text-xl font-bold">{item.title}</p>
-                        
-                    </div>
+                <div className="flex flex-col col-span-2 gap-2">
+                  <p className="text-xl font-bold">{item.title}</p>
                   <p className="text-sm font-normal">Price per item: ${item.price}</p>
                   <p className="text-sm font-normal">Count: {item.count}</p>
                   <p>Total Price: ${item.totalPrice}</p>
-                  {/* <div className="flex  justify-end p-3 ">
-                  
-                    
-                  </div> */}
-                  
                 </div>
-                <div className="flex flex-col justify-between items-end ml-5">
-                    <button onClick={() => handleDelete(item.id)} className="mb-2">
-                      <img src={deleteicon} alt="Delete" />
-                    </button>
-                    <div className="flex items-center bg-[#F0F0F0] rounded-3xl">
-                      <button onClick={() => handleDecrement(item.id)} className="p-2">-</button>
-                      <p className="p-2">{item.count}</p>
-                      <button onClick={() => handleIncrement(item.id)} className="p-2">+</button>
-                    </div>
+                <div className="flex flex-col justify-between items-end col-span-1">
+                  <button onClick={() => handleDelete(item.id)} className="mb-2">
+                    <img src={deleteicon} alt="Delete" />
+                  </button>
+                  <div className="flex items-center bg-[#F0F0F0] rounded-3xl">
+                    <button onClick={() => handleDecrement(item.id)} className="p-2">-</button>
+                    <p className="p-2">{item.count}</p>
+                    <button onClick={() => handleIncrement(item.id)} className="p-2">+</button>
                   </div>
                 </div>
-                <hr />
-             
-            </li>
+              </li>
           ))}
           
         </ul>
-        <div className="flex flex-col gap-6 md:w-[505px] md:h-[458px]">
-          <p className="flex text-2xl font-bold">Order Summary</p>
-          <div className="flex justify-between ">
-            <p className="text-xl font-normal text-[#00000099]">Subtotal</p>
-            <p className="text-xl font-bold">${subtotal.toFixed(2)}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="text-xl font-normal text-[#00000099]">Discount</p>
-            <p className="text-xl font-bold text-[#FF3333]">${discount.toFixed(2)}</p>
-          </div>
-          <div className="flex justify-between">
-           <p className="text-xl font-normal text-[#00000099]"> Delivery Fee </p>
-           <p className="text-xl font-bold">${deliveryfee.toFixed(2)}</p>
-          </div>
-          <hr />
-          <div className="flex justify-between">
-            <p className="text-xl font-normal">Total</p>
-            <p className="text-xl font-bold">${total.toFixed(2)}</p>
-          </div>
-          <button className="bg-black text-white rounded-3xl p-2">Go to Checkout</button>
-        </div>
+          <OrderSummary subtotal={subtotal} discount={discount} deliveryfee={deliveryfee} total={total} />
         </div>
       )}
       </div>

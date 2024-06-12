@@ -28,7 +28,7 @@ const Home = () => {
   console.log(datas)
 
   return (
-    <div className={`${darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`${darkMode ? 'dark-mode' : 'light-mode'} p-3`}>
       {/* <p>Count:{count}</p>
       <button onClick={()=>dispatch(increment())}>Count +</button> " " 
       <button onClick={()=>dispatch(decrement())}>Count -</button> */}

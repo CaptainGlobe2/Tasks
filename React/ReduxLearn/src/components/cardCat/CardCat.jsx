@@ -55,7 +55,7 @@ const CardCat = () => {
       )}
         {categories.map((category)=>(
             <div key={category}>
-                <h2 className="text-2xl font-bold mt-6 mb-4">{category}</h2>
+                <h2 className="text-2xl font-bold mt-6 mb-4 flex justify-center p-2">{category}</h2>
                 <Carousel responsive={responsive} className='flex'>
                     {datas.filter((data)=>data.category === category)
                         .map((filteredData)=>(
