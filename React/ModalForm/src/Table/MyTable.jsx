@@ -20,7 +20,7 @@ const MyTable = ({showData,handleEdit,handleDelete,tableShow}) => {
      </thead>
 
 
-     {tableShow ?(
+     {showData.length>0 ?(
      
      <TableContent showData={showData} handleEdit={handleEdit} handleDelete={handleDelete}></TableContent>
      

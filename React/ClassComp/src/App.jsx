@@ -14,7 +14,14 @@ class App extends Component {
       show:false,
       editingIndex:null,
       validationErrors:{},
+      count:0,
     }
+  }
+
+  handleAdd = () => {
+    this.setState({
+      count:this.state.count + 1,
+    })
   }
 
   handleClose = () => {
@@ -124,6 +131,8 @@ class App extends Component {
             handleDelete={this.handleDelete}
             tableShow={tableShow}
           />
+          {/* <p>{this.state.count}</p>
+          <button onClick={this.handleAdd}>add</button> */}
         </div>
       </>
     );
