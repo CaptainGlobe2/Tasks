@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import Login from './login/page';
 
 const Home = () => {
   const router =useRouter();
@@ -17,8 +18,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
-      {/* Content */}
+      <Login />
     </div>
   );
 };

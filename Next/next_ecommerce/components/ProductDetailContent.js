@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StarRating from './StarRating';
-import { addToCart, increment, decrement, reset } from '../redux/actions/cartActions';
+import { addToCart, increment, decrement} from '../redux/actions/cartActions';
 import { countValue } from '../redux/selectors/countSelectors';
 import { useRouter } from 'next/navigation';
 
@@ -34,7 +34,7 @@ const ProductDetailContent = ({ product }) => {
     };
     dispatch(addToCart(productToAdd));
     setTimeout(() => {
-        router.push('/'); // Navigate to home page
+        router.push('/cart');
       }, 2000);
   };
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import StarRating from '../../../components/StarRating';
-import { addToCart, increment, decrement, reset } from '../../../redux/actions/cartActions';
-import { countValue } from '../../../redux/selectors/countSelectors';
-import { useDispatch, useSelector } from 'react-redux';
+// import StarRating from '../../../components/StarRating';
+// import { addToCart, increment, decrement, reset } from '../../../redux/actions/cartActions';
+// import { countValue } from '../../../redux/selectors/countSelectors';
+// import { useDispatch, useSelector } from 'react-redux';
 import ProductDetailContent from '@/components/ProductDetailContent';
 
 async function fetchProduct(id) {
